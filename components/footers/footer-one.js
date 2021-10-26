@@ -10,7 +10,9 @@ import LogisticLogoBlock from '../../components/common/logistic-logo-block';
 import { useForm } from "react-hook-form";
 import Axios from "axios";
 import { toast } from 'react-toastify';
-
+import WhatsAppWidget from 'react-whatsapp-widget'
+import 'react-whatsapp-widget/dist/index.css'
+import FloatingWhatsApp from 'react-floating-whatsapp'
 const FooterOne = ({ fluid, logoName ,layoutClass ,footerClass }) => {
 
     const curContext = useContext(CurrencyContext);
@@ -177,9 +179,9 @@ const allSmall = {
                                 </div>
                                 <div className="footer-contant">
                                     <ul>
-                                        <li><a href={`${geoLocation}/page/returns-refund`}>Returns & Refunds</a></li>
+                                        <li><a href={`${geoLocation}/page/returns-refund`}>Refund Policy</a></li>
                                         <li><a href="#">Wholesale</a></li>
-                                        <li><a href={`${geoLocation}/page/terms_conditions`}> Terms & Conditions</a></li>
+                                        <li><a href={`${geoLocation}/page/terms_conditions`}> Billing Terms & Conditions</a></li>
                                         <li><a href={`${geoLocation}/page/privacy_policy`}>Privacy Policy</a></li>
                                         <li>
                                         <Link href={`${geoLocation}/page/account/contact`} >
@@ -193,7 +195,7 @@ const allSmall = {
                         <Col>
                             <div className="sub-title">
                                 <div className="footer-title">
-                                    <h4>store information</h4>
+                                    <h4>Contact Information</h4>
                                 </div>
                                 <div className="footer-contant">
                                     <ul className="contact-list">
@@ -209,6 +211,7 @@ const allSmall = {
                                 </div>
                             </div>
                         </Col>
+                        
                     </Row>
                 </Container>
             </section>
@@ -218,6 +221,8 @@ const allSmall = {
                         </div>
             
             <CopyRight layout={layoutClass} fluid={fluid}  />
+            {/* <WhatsAppWidget phoneNumber='+919820168421' companyName="Shop The World" /> */}
+            <FloatingWhatsApp phoneNumber="+919820168421" accountName="Shop The World"  styles={{left: "1180px",bottom: "20px"}}/>
         </footer>
     )
 }

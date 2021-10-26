@@ -16,6 +16,7 @@ import AutoFitImage from 'react-image-autofit-frame';
 import { CurrencyContext } from "../../../../helpers/Currency/CurrencyContext";
 import GooglePayButton from "@google-pay/button-react";
 import { useQuery,useLazyQuery } from '@apollo/react-hooks';
+import Loader from '../../../../components/common/Loader';
 
 
 const CREATE_OREDER = gql`
@@ -1415,7 +1416,8 @@ const [geoLocation, setgeoLocation] = useState(gLocation);
                                              <div className="typography_section"> 
                                                  <div className="typography-box"> 
                                                      <div  className="custom-load typo-content loader-typo" >
-                                                          <div className="pre-loader"></div>
+                                                         <Loader />
+                                                          {/* <div className="pre-loader"></div> */}
                                                      </div>
                                                  </div>
                                              </div>

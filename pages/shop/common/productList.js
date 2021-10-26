@@ -17,6 +17,7 @@ import Head from 'next/head';
 import { useMutation } from "@apollo/react-hooks";
 import { toast } from 'react-toastify';
 import InfiniteScroll from "react-infinite-scroll-component";
+import Loader from '../../../components/common/Loader';
 
 const GET_PRODUCTS = gql`
 query($lookupSearchFields: SearchFields){
@@ -133,22 +134,18 @@ const ProductList = ({ colClass, type, parentCategory, layoutList, openSidebar, 
     var searchKey = "";
     var category = "";
     var promokey = "";
-    var brand ="";
-    if(pathId!=null & pathId != undefined && pathId!="")
-    {
-        if(type=="keyword")
-        {
-            searchKey = pathId; 
+    var brand = "";
+    if (pathId != null & pathId != undefined && pathId != "") {
+        if (type == "keyword") {
+            searchKey = pathId;
         }
         else if (type == "promo") {
             promokey = pathId;
         }
-        else if(type == "brand")
-        {
+        else if (type == "brand") {
             brand = pathId;
         }
-        else
-        {
+        else {
             category = pathId;
         }
     }
@@ -236,18 +233,18 @@ const ProductList = ({ colClass, type, parentCategory, layoutList, openSidebar, 
     var { errors, loading, data, fetchMore } = useQuery(GET_PRODUCTS, {
         variables: {
             lookupSearchFields: {
-                limit:limitSet,
-                indexFrom:pageIndex,
-                keyword:selectedKeyword,
-                promoflag:selectedPromo,
-                relevantProduct:"",
-                selectedCategory:selectedCategory,
-                panel:panel,
-                country:country,
-                priceMin:0,
-                priceMax:0,
-                brand:brand
-              }
+                limit: limitSet,
+                indexFrom: pageIndex,
+                keyword: selectedKeyword,
+                promoflag: selectedPromo,
+                relevantProduct: "",
+                selectedCategory: selectedCategory,
+                panel: panel,
+                country: country,
+                priceMin: 0,
+                priceMax: 0,
+                brand: brand
+            }
         }
     });
 
@@ -307,18 +304,18 @@ const ProductList = ({ colClass, type, parentCategory, layoutList, openSidebar, 
             fetchMore({
                 variables: {
                     lookupSearchFields: {
-                        limit:limitSet,
-                        indexFrom:nextPage,
-                        keyword:selectedKeyword,
-                        promoflag:selectedPromo,
-                        relevantProduct:"",
-                        selectedCategory:selectedCategory,
-                        panel:panel,
-                        country:country,
-                        priceMin:0,
-                        priceMax:0,
-                        brand:brand
-                      }
+                        limit: limitSet,
+                        indexFrom: nextPage,
+                        keyword: selectedKeyword,
+                        promoflag: selectedPromo,
+                        relevantProduct: "",
+                        selectedCategory: selectedCategory,
+                        panel: panel,
+                        country: country,
+                        priceMin: 0,
+                        priceMax: 0,
+                        brand: brand
+                    }
                 },
                 updateQuery: (prev, { fetchMoreResult }) => {
                     if (!fetchMoreResult) return prev;
@@ -456,7 +453,8 @@ const ProductList = ({ colClass, type, parentCategory, layoutList, openSidebar, 
                                 : [((loading) ? <div className="typography_section">
                                     <div className="typography-box">
                                         <div className="custom-load typo-content loader-typo">
-                                            <div className="pre-loader"></div>
+                                            <Loader />
+                                            {/* <div className="pre-loader"></div> */}
                                         </div>
                                     </div>
                                 </div> :
@@ -681,21 +679,21 @@ const ProductList = ({ colClass, type, parentCategory, layoutList, openSidebar, 
                                     <InfiniteScroll
                                         dataLength={data.lookup.items.length}
                                         next={handlePagination}
-                                        hasMore={data.lookup.hasMore.seqid ? data.lookup.hasMore.seqid : false }
+                                        hasMore={data.lookup.hasMore.seqid ? data.lookup.hasMore.seqid : false}
                                         loader={<div className="row mx-0 margin-default mt-4">
-                                        <div className="col-xl-3 col-lg-4 col-6">
-                                            <PostLoader />
-                                        </div>
-                                        <div className="col-xl-3 col-lg-4 col-6">
-                                            <PostLoader />
-                                        </div>
-                                        <div className="col-xl-3 col-lg-4 col-6">
-                                            <PostLoader />
-                                        </div>
-                                        <div className="col-xl-3 col-lg-4 col-6">
-                                            <PostLoader />
-                                        </div>
-                                    </div>}
+                                            <div className="col-xl-3 col-lg-4 col-6">
+                                                <PostLoader />
+                                            </div>
+                                            <div className="col-xl-3 col-lg-4 col-6">
+                                                <PostLoader />
+                                            </div>
+                                            <div className="col-xl-3 col-lg-4 col-6">
+                                                <PostLoader />
+                                            </div>
+                                            <div className="col-xl-3 col-lg-4 col-6">
+                                                <PostLoader />
+                                            </div>
+                                        </div>}
                                         endMessage={<h4>Nothing more to show</h4>}
 
                                     >

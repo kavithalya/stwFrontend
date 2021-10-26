@@ -15,6 +15,7 @@ import { CurrencyContext } from '../../../helpers/Currency/CurrencyContext';
 import CartContext from '../../../helpers/cart';
 import classes from "../../../components/headers/Header-one.module.css";
 import AutoFitImage from 'react-image-autofit-frame';
+import Loader from '../../../components/common/Loader';
 
 const GET_SINGLE_PRODUCTS = gql`
 query($productAsin: String!, $productType: String!, $productCountry: String!, $productPanel: String!){
@@ -328,7 +329,8 @@ const LeftSidebarPage = ({ pathId, type }) => {
                                             <div className="typography_section"> 
                                                 <div className="typography-box"> 
                                                     <div  className="custom-load typo-content loader-typo" >
-                                                         <div className="pre-loader"></div>
+                                                         {/* <div className="pre-loader"></div> */}
+                                                         <Loader />
                                                     </div>
                                                 </div>
                                             </div>
@@ -344,6 +346,7 @@ const LeftSidebarPage = ({ pathId, type }) => {
                                                             <h1>404</h1>
                                                             <h2>page not found</h2>
                                                             <a href="/" className="btn btn-solid">back to home</a>
+
                                                         </div>
                                                     </Col>
                                                 </Row>
@@ -472,6 +475,8 @@ const LeftSidebarPage = ({ pathId, type }) => {
                                         <Col lg="6" className="rtl-text">
                                             <DetailsWithPrice symbol={symbol} item={data.product} changeColorVar={changeColorVar} navOne={state.nav1}  />
                                         </Col>
+                                        {/* <Loader /> */}
+
                                     </Row>
                                     )]
                                 }
@@ -541,6 +546,7 @@ const LeftSidebarPage = ({ pathId, type }) => {
                             {/* <!-- side-bar single product slider end --> */}
                         </Col>
                     </Row>
+
                 </Container>
             </div>
         </section>

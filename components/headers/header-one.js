@@ -15,6 +15,8 @@ import Currency from "./common/currency";
 import { useRouter } from "next/router";
 import classes from "./Header-one.module.css";
 import Link from "next/link";
+import Loader from '../../components/common/Loader';
+
 const HeaderOne = ({
   logoName,
   headerClass,
@@ -37,11 +39,11 @@ const HeaderOne = ({
   const [url, setUrl] = useState();
   const [searchKeyword, setSearchKeyword] = useState("");
   var gLocation = sessionStorage.getItem('geoLocation')
-    if(gLocation==null){gLocation=""}
-    const [geoLocation, setgeoLocation] = useState(gLocation);
+  if (gLocation == null) { gLocation = "" }
+  const [geoLocation, setgeoLocation] = useState(gLocation);
   /*=====================
-		 Pre loader
-		 ==========================*/
+     Pre loader
+     ==========================*/
   useEffect(() => {
     setTimeout(function () {
       document.querySelectorAll(".loader-wrapper").style = "display:none";
@@ -56,10 +58,10 @@ const HeaderOne = ({
     };
   }, []);
 
-  const searchInputChange =(e)=>{
+  const searchInputChange = (e) => {
     if (
       e.target.value != null &&
-      e.target.value != undefined  
+      e.target.value != undefined
     ) {
       setSearchKeyword(e.target.value);
       console.log(searchKeyword)
@@ -80,8 +82,7 @@ const HeaderOne = ({
         var URL = pathname;
       } else {
         var URL = geoLocation + "/s/";
-        if(geoLocation==null)
-        {
+        if (geoLocation == null) {
           URL = "/s/";
         }
 
@@ -190,7 +191,7 @@ const HeaderOne = ({
                                 <Col lg="12">
                                   <form
                                     className="form-header"
-                                    
+
                                   >
                                     <div className="input-group">
                                       <Input
@@ -201,10 +202,10 @@ const HeaderOne = ({
                                         name="keyword"
                                         onChange={searchInputChange}
                                       />
-                                       <Link href={`/s/${searchKeyword}`}>
-                                      <div className="input-group-append">
-                                        <button className="btn btn-solid"> <i className="fa fa-search"></i>Search </button>
-                                      </div>
+                                      <Link href={`/s/${searchKeyword}`}>
+                                        <div className="input-group-append">
+                                          <button className="btn btn-solid"> <i className="fa fa-search"></i>Search </button>
+                                        </div>
                                       </Link>
                                     </div>
                                   </form>
@@ -273,7 +274,7 @@ const HeaderOne = ({
                 "onhover-div mobile-search " + classes.fullSizeContainer
               }
             >
-                        {/* onSubmit={handleSubmit(onSubmit)} */}
+              {/* onSubmit={handleSubmit(onSubmit)} */}
 
               <section className="search-block">
                 <Container>
@@ -291,23 +292,23 @@ const HeaderOne = ({
                             name="keyword"
                             onChange={searchInputChange}
                           />
-                            <Link href={`/s/${searchKeyword}`}>
-                          <div className="input-group-append">
-                            <div className={classes.searchMobile}>
-                              <button className={classes.mobileButton}>
-                                <i
-                                  className={
-                                    "fa fa-search " + classes.searchIcon
-                                  }
-                                ></i>
-                              </button>
-                            </div>
-                            <div className={classes.searchDesktop}>
-                              <button className={classes.desktopButton}>
-                                <i className={"fa fa-search "}></i>Search
-                              </button>
-                            </div>
-                          </div></Link>
+                          <Link href={`/s/${searchKeyword}`}>
+                            <div className="input-group-append">
+                              <div className={classes.searchMobile}>
+                                <button className={classes.mobileButton}>
+                                  <i
+                                    className={
+                                      "fa fa-search " + classes.searchIcon
+                                    }
+                                  ></i>
+                                </button>
+                              </div>
+                              <div className={classes.searchDesktop}>
+                                <button className={classes.desktopButton}>
+                                  <i className={"fa fa-search "}></i>Search
+                                </button>
+                              </div>
+                            </div></Link>
                         </div>
                       </form>
                     </Col>

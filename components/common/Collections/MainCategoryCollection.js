@@ -16,6 +16,7 @@ import AutoFitImage from 'react-image-autofit-frame';
 import cImg from '../../../public/assets/images/Category/Desktops.jpg';
 import Link from "next/link";
 import { CategoryList } from '../../../services/script';
+import Loader from '../../../components/common/Loader';
 
 
 const MainCategoryCollection = ({ type, categoryData, title, subtitle, designClass, noSlider, cartClass, productSlider, titleClass, noTitle, innerClass, inner, backImage }) => {
@@ -141,7 +142,8 @@ const MainCategoryCollection = ({ type, categoryData, title, subtitle, designCla
                                                 <div className="typography-box"> 
                                                     <div  className="custom-load typo-content loader-typo" >
                                                         
-                                                         <div className="pre-loader"></div>
+                                                    <Loader />
+                                                         {/* <div className="pre-loader"></div> */}
                                                     </div>
                                                 </div>
                                             </div>

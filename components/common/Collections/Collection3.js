@@ -14,6 +14,7 @@ import { useRouter } from 'next/router';
 import { CurrencyContext } from '../../../helpers/Currency/CurrencyContext';
 import AutoFitImage from 'react-image-autofit-frame';
 import Link from "next/link";
+import Loader from '../../../components/common/Loader';
 
 
  
@@ -133,7 +134,8 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
                                                 <div className="typography-box"> 
                                                     <div  className="custom-load typo-content loader-typo" >
                                                         
-                                                         <div className="pre-loader"></div>
+                                                    <Loader />
+                                                         {/* <div className="pre-loader"></div> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,7 +151,8 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
                                                 <div className="typography-box"> 
                                                     <div  className="custom-load typo-content loader-typo" >
                                                         
-                                                         <div className="pre-loader"></div>
+                                                    <Loader />
+                                                         {/* <div className="pre-loader"></div> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -165,7 +168,8 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
                                                 <div className="typography-box"> 
                                                     <div  className="custom-load typo-content loader-typo" >
                                                         
-                                                         <div className="pre-loader"></div>
+                                                         <Loader />
+                                                         {/* <div className="pre-loader"></div> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -181,7 +185,8 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
                                                 <div className="typography-box"> 
                                                     <div  className="custom-load typo-content loader-typo" >
                                                         
-                                                         <div className="pre-loader"></div>
+                                                         <Loader />
+                                                         {/* <div className="pre-loader"></div> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,7 +217,8 @@ const TopCollection = ({ type, title, subtitle, designClass, noSlider, cartClass
                                                 <div className="typography-box"> 
                                                     <div  className="custom-load typo-content loader-typo" >
                                                         
-                                                         <div className="pre-loader"></div>
+                                                         <Loader />
+                                                         {/* <div className="pre-loader"></div> */}
                                                     </div>
                                                 </div>
                                             </div>
